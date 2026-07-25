@@ -5,9 +5,12 @@ import Link from 'next/link';
 
 const navItems = [
   { label: 'Home', href: '#home' },
-  { label: 'Features', href: '#features' },
+  { label: 'Showreel', href: '#showreel' },
+  { label: 'Services', href: '#services' },
+  { label: 'Portfolio', href: '#portfolio' },
+  { label: 'Process', href: '#process' },
+  { label: 'Testimonials', href: '#testimonials' },
   { label: 'About', href: '#about' },
-  { label: 'Contact', href: '#contact' },
 ];
 
 export default function Navbar() {
