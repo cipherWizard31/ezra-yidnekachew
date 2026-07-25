@@ -1,20 +1,20 @@
-// app/layout.tsx
 import type { Metadata } from "next";
-import { Elms_Sans, Geist } from "next/font/google"; // Import the font
+import { Geist, Plus_Jakarta_Sans } from "next/font/google"; // Using standard google fonts
 import "./globals.css";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
 
-
-// Configure Elms Sans (it is a variable font)
-const elmsSans = Elms_Sans({
+const mainFont = Plus_Jakarta_Sans({
   subsets: ["latin"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "My Next.js App",
-  description: "Built with Elms Sans",
+  title: "Video Editor Portfolio",
+  description: "Built with Next.js & Tailwind CSS",
 };
 
 export default function RootLayout({
@@ -23,9 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={geist.variable}>
-      {/* Inject the class name directly into the body */}
-      <body className={elmsSans.className}>
+    <html lang="en" className={`${geist.variable} scroll-smooth`}>
+      <body className={`${mainFont.className} bg-slate-950 text-slate-100 font-sans antialiased`}>
         {children}
       </body>
     </html>
