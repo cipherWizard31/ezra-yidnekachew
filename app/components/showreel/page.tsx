@@ -9,7 +9,7 @@ export default function Showreel() {
       className="relative flex items-center justify-center bg-slate-950 px-4 sm:px-6 py-16 overflow-hidden"
     >
       {/* Background Ambient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-100 h-100 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="relative w-full max-w-4xl mx-auto space-y-6 z-10 flex flex-col items-center">
         

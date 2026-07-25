@@ -89,7 +89,7 @@ export default function Process() {
         <div className="relative">
           
           {/* Aesthetic Center Line */}
-          <div className="absolute left-6 md:left-1/2 top-4 bottom-4 w-0.5 -translate-x-1/2 bg-gradient-to-b from-blue-500/20 via-sky-500/50 to-blue-500/20" />
+          <div className="absolute left-6 md:left-1/2 top-4 bottom-4 w-0.5 -translate-x-1/2 bg-linear-to-b from-blue-500/20 via-sky-500/50 to-blue-500/20" />
 
           {/* Timeline Nodes */}
           <div className="space-y-12 md:space-y-16">

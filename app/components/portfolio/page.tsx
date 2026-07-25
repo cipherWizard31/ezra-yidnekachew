@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { Play, X, Film, Layers } from 'lucide-react';
 import { PROJECTS } from '@/lib/portfolioData';
 
@@ -17,19 +17,19 @@ interface Project {
 
 const CATEGORIES = ['All', 'YouTube', 'Shorts & Reels', 'Commercial', 'Color Grading'];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {},
   visible: {
     transition: { staggerChildren: 0.08 },
   },
 };
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.4, ease: 'easeOut' },
+    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
   },
 };
 
@@ -126,7 +126,7 @@ export default function Portfolio() {
                   />
                   
                   {/* Overlay Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
+                  <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
 
                   {/* Play Button Icon */}
                   <div className="absolute inset-0 flex items-center justify-center">
@@ -154,7 +154,7 @@ export default function Portfolio() {
 
                   {/* Tags */}
                   <div className="flex flex-wrap gap-2 pt-2 border-t border-white/5">
-                    {project.tags?.map((tag, tagIndex) => (
+                    {project.tags?.map((tag: any, tagIndex: any) => (
                       <span
                         key={tagIndex}
                         className="text-xs px-2.5 py-1 rounded-md bg-slate-800/80 text-slate-300 border border-slate-700/50"
