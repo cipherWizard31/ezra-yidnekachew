@@ -7,7 +7,6 @@ import { Play, ArrowRight, Sparkles } from 'lucide-react';
 const titles = [
   'Video Editor',
   'Social Media Manager',
-  'Videographer',
 ];
 
 export default function Hero() {
