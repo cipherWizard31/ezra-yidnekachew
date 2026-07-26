@@ -165,7 +165,7 @@ export default function Portfolio() {
             Brands & Creators Managed
           </h2>
           <p className="text-slate-400 text-sm sm:text-base max-w-xl mx-auto">
-            A showcase of creators and businesses Ezra has worked with, along with key roles and responsibilities.
+            A showcase of creators and businesses I worked with, along with roles and responsibilities.
           </p>
         </motion.div>
 

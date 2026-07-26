@@ -42,9 +42,9 @@ export default function Footer() {
             </div>
             <div>
               <span className="text-lg font-bold text-white tracking-tight">
-                YourName<span className="text-sky-400">.Edit</span>
+                Ezra Yidnekachew<span className="text-sky-400">.Edit</span>
               </span>
-              <p className="text-xs text-slate-500">Video Editor & Post-Production Specialist</p>
+              <p className="text-xs text-slate-500">Social Media Manager & Video Editor</p>
             </div>
           </div>
 
@@ -93,7 +93,7 @@ export default function Footer() {
 
         {/* Bottom Copyright Row */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 text-center sm:text-left">
-          <p>© {new Date().getFullYear()} YourName. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Natan Yidnekachew. All rights reserved.</p>
           <p>Built with Next.js, Tailwind CSS & Framer Motion</p>
         </div>
 
