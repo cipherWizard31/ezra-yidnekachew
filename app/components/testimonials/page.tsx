@@ -82,7 +82,7 @@ export default function Testimonials() {
       className="relative scroll-mt-20 py-24 px-4 sm:px-6 bg-slate-950 overflow-hidden"
     >
       {/* Background Ambient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-blue-600/10 rounded-full blur-[160px] pointer-events-none" />
 
       <div className="relative max-w-6xl mx-auto space-y-16 z-10">
         
@@ -107,7 +107,7 @@ export default function Testimonials() {
 
         {/* Sliding Horizontal Stage */}
         <div 
-          className="relative h-[380px] sm:h-[320px] w-full flex items-center justify-center perspective-[1000px]"
+          className="relative h-95 sm:h-80 w-full flex items-center justify-center perspective-[1000px]"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
