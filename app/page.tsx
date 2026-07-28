@@ -6,7 +6,6 @@ import Navbar from './components/Navbar/page';
 import Portfolio from './components/portfolio/page';
 import Process from './components/process/page';
 import Services from './components/services/page';
-import Showreel from './components/showreel/page';
 import Testimonials from './components/testimonials/page';
 
 export default function Home() {
@@ -14,7 +13,6 @@ export default function Home() {
     <div>
       <Navbar />
       <Hero />
-      <Showreel />
       <Services />
       <Portfolio />
       <Process />

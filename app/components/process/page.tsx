@@ -3,55 +3,63 @@
 import { motion } from 'framer-motion';
 import { 
   FileText, 
-  FolderDown, 
-  Scissors, 
+  Pen, 
+  ViewIcon, 
   Sliders, 
+  UploadCloud,
   Send, 
-  CheckCircle2 
+  Presentation
 } from 'lucide-react';
 
 const steps = [
   {
     number: '01',
     icon: FileText,
-    title: 'Discovery & Briefing',
+    title: 'Discovery & Strategy',
     description:
-      'We discuss your vision, target audience, style preferences, reference videos, and project deadlines to ensure complete alignment.',
+      'We discuss your business, target audience, goals, and competitors to understand what success looks like.',
   },
   {
     number: '02',
-    icon: FolderDown,
-    title: 'Asset Transfer',
+    icon: ViewIcon,
+    title: 'Social Media Audit',
     description:
-      'You upload raw footage, audio tracks, brand guidelines, and assets via a secure Drive/Dropbox link or Frame.io project.',
+      'I review your current social media presence, identify opportunities for improvement, and develop a content strategy tailored to your brand.',
   },
   {
     number: '03',
-    icon: Scissors,
-    title: 'First Cut & Pacing',
+    icon: Pen,
+    title: 'Content Planning',
     description:
-      'I structure the narrative, apply fast cuts/b-roll, select background music, and craft a compelling hook to maximize retention.',
+      'I create a content calendar with post ideas, captions, posting schedule, and creative direction aligned with your business goals.',
   },
   {
     number: '04',
     icon: Sliders,
-    title: 'Polishing & FX',
+    title: 'Content Creation',
     description:
-      'Adding cinematic DaVinci Resolve color grading, custom sound design, dynamic motion graphics, subtitles, and visual effects.',
+      'I design graphics, edit videos, write captions, and prepare content optimized for each platform.',
   },
   {
     number: '05',
     icon: Send,
-    title: 'Review & Revisions',
+    title: 'Review & Approval',
     description:
-      'You receive a Frame.io review link for timestamped feedback. I incorporate your edits quickly until you’re 100% satisfied.',
+      'You review the content, provide feedback, and approve everything before it goes live.',
   },
   {
     number: '06',
-    icon: CheckCircle2,
-    title: 'Final Delivery',
+    icon: UploadCloud,
+    title: 'Publishing & Management',
     description:
-      'Full resolution exports (4K/1080p) delivered in optimal formats for YouTube, Instagram, TikTok, or broadcast standards.',
+      'I schedule or publish the content, monitor engagement, and ensure your social media stays active and consistent.',
+  },
+  {
+    number: '07',
+    icon: Presentation,
+    title: 'Performance & Report',
+    description:
+      'At the end of the campaign or month, I provide insights, analytics, and recommendations to improve future performance.',
   },
 ];
 
