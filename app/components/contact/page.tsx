@@ -2,15 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Send, CheckCircle2, Loader2 } from 'lucide-react';
-import { FaYoutube, FaXTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa6';
-
-const socialLinks = [
-  { name: 'YouTube', icon: FaYoutube, href: 'https://youtube.com' },
-  { name: 'X (Twitter)', icon: FaXTwitter, href: 'https://x.com' },
-  { name: 'Instagram', icon: FaInstagram, href: 'https://instagram.com' },
-  { name: 'LinkedIn', icon: FaLinkedin, href: 'https://linkedin.com' },
-];
+import { Send, CheckCircle2, Loader2 } from 'lucide-react';
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -193,32 +185,6 @@ export default function Contact() {
               </button>
             </form>
           )}
-
-          {/* Social Links Bar */}
-          <div className="mt-10 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-2 text-slate-400 text-sm">
-              <Mail className="w-4 h-4 text-sky-400" />
-              <span>or email directly at <strong className="text-white">ezraye9@gmail.com</strong></span>
-            </div>
-
-            <div className="flex items-center gap-3">
-              {socialLinks.map((social, index) => {
-                const Icon = social.icon;
-                return (
-                  <a
-                    key={index}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.name}
-                    className="w-10 h-10 rounded-xl bg-slate-950 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-sky-400 transition-colors"
-                  >
-                    <Icon className="w-4 h-4" />
-                  </a>
-                );
-              })}
-            </div>
-          </div>
         </motion.div>
 
       </div>

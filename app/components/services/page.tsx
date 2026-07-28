@@ -2,56 +2,56 @@
 
 import { motion } from 'framer-motion';
 import { 
-  Video, 
-  Sparkles, 
-  Palette, 
-  Volume2, 
-  Film, 
-  Zap 
+  Megaphone, 
+  BarChart3, 
+  PenTool, 
+  Users, 
+  Target, 
+  Sparkles 
 } from 'lucide-react';
 
 const services = [
   {
-    icon: Video,
-    title: 'YouTube & Long-Form',
+    icon: Target,
+    title: 'Social Media Strategy',
     description:
-      'Engaging, fast-paced edits designed to maximize retention, click-through rates, and audience engagement.',
-    tags: ['Pacing', 'Storytelling', 'B-Roll Integration'],
+      'Data-driven content strategies aligned with your business goals to increase reach, build brand authority, and convert followers into customers.',
+    tags: ['Audience Research', 'Content Pillars', 'Competitor Analysis'],
   },
   {
-    icon: Zap,
-    title: 'Shorts, Reels & TikToks',
+    icon: PenTool,
+    title: 'Content Creation & Curation',
     description:
-      'High-energy vertical videos with dynamic captions, sound FX, and hooks tailored for viral social reach.',
-    tags: ['Dynamic Captions', 'Fast Cuts', 'Trend Audio'],
+      'High-converting graphics, reels, carousels, and copy tailored for your audience to keep your social feeds active and visually cohesive.',
+    tags: ['Copywriting', 'Graphic Design', 'Short-Form Video'],
   },
   {
-    icon: Palette,
-    title: 'Cinematic Color Grading',
+    icon: Megaphone,
+    title: 'Full Account Management',
     description:
-      'Professional color correction and cinematic look creation in DaVinci Resolve to set the perfect visual tone.',
-    tags: ['DaVinci Resolve', 'Shot Matching', 'LUT Creation'],
+      'End-to-end management of your social channels, ensuring consistent publishing schedules, optimized profile setups, and brand growth.',
+    tags: ['Content Calendar', 'Scheduling', 'Cross-Platform'],
   },
   {
-    icon: Volume2,
-    title: 'Sound Design & Mixing',
+    icon: Users,
+    title: 'Community Engagement',
     description:
-      'Immersive audio design including custom sound effects, crisp voice isolation, and balanced audio leveling.',
-    tags: ['SFX Layering', 'Voice Cleanup', 'Audio Leveling'],
+      'Active interaction with your audience through comments, DMs, and outbound outreach to foster brand loyalty and direct customer relationships.',
+    tags: ['DM Management', 'Audience Growth', 'Active Outreach'],
   },
   {
-    icon: Film,
-    title: 'Commercial & Brand Ads',
+    icon: BarChart3,
+    title: 'Analytics & Monthly Reporting',
     description:
-      'Sleek, high-converting promotional videos for products, brands, and digital ad campaigns.',
-    tags: ['Product Promos', 'Ad Creatives', 'Motion Graphics'],
+      'Detailed tracking of key metrics, performance trends, and growth insights to continually refine and optimize your social strategy.',
+    tags: ['KPI Tracking', 'Growth Reports', 'Performance Audits'],
   },
   {
     icon: Sparkles,
-    title: 'Motion Graphics & VFX',
+    title: 'Paid Ad Campaigns',
     description:
-      'Custom titles, lower thirds, 2D animations, and clean visual effects to elevate overall production value.',
-    tags: ['After Effects', 'Title Cards', 'Visual FX'],
+      'Targeted ad setup and creative optimization across Meta and TikTok to reach new audiences and maximize return on ad spend (ROAS).',
+    tags: ['Meta Ads', 'Audience Targeting', 'A/B Testing'],
   },
 ];
 
@@ -96,10 +96,10 @@ export default function Services() {
             What I Offer
           </span>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-            Professional Editing Services
+            Social Media Management Services
           </h2>
           <p className="text-slate-400 text-sm sm:text-base max-w-xl mx-auto">
-            End-to-end post-production solutions crafted to bring your creative vision to life and hook viewers.
+            Comprehensive solutions designed to elevate your brand presence, engage your audience, and drive real business growth.
           </p>
         </motion.div>
 

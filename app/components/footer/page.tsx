@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { ArrowUp, Video } from 'lucide-react';
-import { FaYoutube, FaXTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa6';
 
 const navLinks = [
   { name: 'Services', href: '#services' },
@@ -13,12 +12,6 @@ const navLinks = [
   { name: 'Contact', href: '#contact' },
 ];
 
-const socialLinks = [
-  { name: 'YouTube', icon: FaYoutube, href: 'https://youtube.com' },
-  { name: 'X (Twitter)', icon: FaXTwitter, href: 'https://x.com' },
-  { name: 'Instagram', icon: FaInstagram, href: 'https://instagram.com' },
-  { name: 'LinkedIn', icon: FaLinkedin, href: 'https://linkedin.com' },
-];
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -61,24 +54,6 @@ export default function Footer() {
             ))}
           </nav>
 
-          {/* Social Links & Back to Top */}
-          <div className="flex items-center gap-3">
-            {socialLinks.map((social, index) => {
-              const Icon = social.icon;
-              return (
-                <a
-                  key={index}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.name}
-                  className="w-9 h-9 rounded-lg bg-slate-900 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-sky-400 transition-colors"
-                >
-                  <Icon className="w-4 h-4" />
-                </a>
-              );
-            })}
-
             {/* Back To Top Button */}
             <button
               onClick={scrollToTop}
@@ -96,8 +71,6 @@ export default function Footer() {
           <p>© {new Date().getFullYear()} Natan Yidnekachew. All rights reserved.</p>
           <p>Built with Next.js, Tailwind CSS & Framer Motion</p>
         </div>
-
-      </div>
     </footer>
   );
 }

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Play, ArrowRight, Sparkles } from 'lucide-react';
+import { Play, ArrowRight, Sparkles, PhoneCallIcon } from 'lucide-react';
 
 const titles = [
   'Video Editor',
@@ -97,13 +97,13 @@ export default function Hero() {
             <ArrowRight className="w-4 h-4" />
           </a>
 
-          {/* Secondary CTA (Showreel Trigger) */}
+          {/* Secondary CTA */}
           <a
-            href="#showreel"
+            href="#contact"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-slate-900/80 hover:bg-slate-800 border border-slate-800 text-slate-200 font-semibold text-sm backdrop-blur-md transition-all duration-200 hover:-translate-y-0.5"
           >
-            <Play className="w-4 h-4 fill-current text-sky-400" />
-            Watch Showreel
+            <PhoneCallIcon className="w-4 h-4 fill-current text-sky-400" />
+            Contact
           </a>
         </motion.div>
       </div>

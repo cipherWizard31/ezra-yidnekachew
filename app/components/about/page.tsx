@@ -1,22 +1,22 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Award, Clock, Flame, Video } from 'lucide-react';
+import { Award, Clock, Flame, Users } from 'lucide-react';
 
 const stats = [
-  { icon: Video, value: '250+', label: 'Videos Edited' },
-  { icon: Flame, value: '15M+', label: 'Total Views' },
-  { icon: Clock, value: '4+ Yrs', label: 'Experience' },
+  { icon: Users, value: '500K+', label: 'Audience Reached' },
+  { icon: Flame, value: '10M+', label: 'Total Impressions' },
+  { icon: Clock, value: '3+ Yrs', label: 'Experience' },
   { icon: Award, value: '100%', label: 'On-Time Delivery' },
 ];
 
-const softwareStack = [
-  'Adobe Premiere Pro',
-  'DaVinci Resolve Studio',
-  'After Effects',
-  'Frame.io',
-  'Audition',
+const toolStack = [
+  'Meta Business Suite',
+  'Notion',
+  'CapCut',
+  'Canva',
   'Photoshop',
+  'Later / Metricool',
 ];
 
 export default function About() {
@@ -40,22 +40,22 @@ export default function About() {
             className="space-y-6"
           >
             <span className="text-xs uppercase tracking-widest text-sky-400 font-semibold">
-              Behind The Timeline
+              Behind The Strategy
             </span>
             <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-              Crafting stories that capture and keep attention.
+              Building online presences that convert and engage.
             </h2>
             <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
-              I’m a post-production specialist focused on high-retention video editing, cinematic color grading, and sound design. Whether it’s high-energy YouTube long-form, fast-paced vertical content, or sleek commercial ads, I turn raw clips into compelling visual narratives.
+              I’m a Social Media Manager focused on growth strategy, content creation, and community building. Whether it’s creating engaging reels, designing branded assets, or optimizing post schedules, I help brands and creators establish a strong visual identity and meaningfully connect with their audience.
             </p>
 
-            {/* Software Badge Stack */}
+            {/* Software & Tools Badge Stack */}
             <div className="space-y-3 pt-2">
               <h4 className="text-xs uppercase tracking-wider text-slate-400 font-semibold">
-                Primary Software & Tools
+                Primary Tools & Platforms
               </h4>
               <div className="flex flex-wrap gap-2">
-                {softwareStack.map((tool, idx) => (
+                {toolStack.map((tool, idx) => (
                   <span
                     key={idx}
                     className="text-xs px-3 py-1.5 rounded-lg bg-slate-900 border border-white/10 text-slate-300 font-medium"
