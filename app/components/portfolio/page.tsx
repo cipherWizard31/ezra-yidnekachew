@@ -222,7 +222,7 @@ export default function Portfolio() {
                     alt={client.clientName}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-slate-900 via-slate-900/40 to-transparent" />
                   
                   {/* Category Pill Top Right */}
                   <div className="absolute top-3 right-3">
@@ -303,7 +303,7 @@ export default function Portfolio() {
                   alt={selectedClient.clientName}
                   className="w-full h-full object-cover opacity-60"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-slate-900 via-slate-900/40 to-transparent" />
 
                 {/* Close Button */}
                 <button

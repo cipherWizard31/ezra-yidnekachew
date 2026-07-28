@@ -1,7 +1,8 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Send } from 'lucide-react';
+import { Mail, Send, CheckCircle2, Loader2 } from 'lucide-react';
 import { FaYoutube, FaXTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa6';
 
 const socialLinks = [
@@ -12,9 +13,37 @@ const socialLinks = [
 ];
 
 export default function Contact() {
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Connect your form handler here (e.g. Resend or Formspree)
+    setIsSubmitting(true);
+    setErrorMessage('');
+
+    const formData = new FormData(e.currentTarget);
+    // Replace with your actual Web3Forms Access Key
+    formData.append('access_key', '6d818a05-8d11-4bbd-aae6-9fc1894545bc');
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setIsSubmitted(true);
+      } else {
+        setErrorMessage(data.message || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      setErrorMessage('Failed to send message. Please check your connection.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -54,79 +83,122 @@ export default function Contact() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="rounded-2xl border border-white/10 bg-slate-900/60 p-6 sm:p-10 backdrop-blur-md shadow-2xl"
         >
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {/* Name */}
-              <div className="space-y-2">
-                <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  required
-                  placeholder="John Doe"
-                  className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-sky-400 transition-colors"
-                />
-              </div>
-
-              {/* Email */}
-              <div className="space-y-2">
-                <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  required
-                  placeholder="john@example.com"
-                  className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-sky-400 transition-colors"
-                />
-              </div>
-            </div>
-
-            {/* Project Type */}
-            <div className="space-y-2">
-              <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
-                Project Type
-              </label>
-              <select 
-                className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/10 text-slate-300 focus:outline-none focus:border-sky-400 transition-colors"
-              >
-                <option value="youtube">YouTube Long-Form Video</option>
-                <option value="shorts">Shorts / Reels / TikToks</option>
-                <option value="commercial">Commercial / Brand Ad</option>
-                <option value="color">Color Grading / Sound Design</option>
-                <option value="other">Other Inquiry</option>
-              </select>
-            </div>
-
-            {/* Message */}
-            <div className="space-y-2">
-              <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
-                Project Details
-              </label>
-              <textarea
-                rows={4}
-                required
-                placeholder="Tell me about your video length, deadline, and style ideas..."
-                className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-sky-400 transition-colors resize-none"
-              />
-            </div>
-
-            {/* Submit Button */}
-            <button
-              type="submit"
-              className="w-full py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold transition-colors flex items-center justify-center gap-2 shadow-lg shadow-blue-600/25"
+          {isSubmitted ? (
+            /* Success State Screen */
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="text-center py-10 space-y-4"
             >
-              <Send className="w-4 h-4" />
-              Send Message
-            </button>
-          </form>
+              <CheckCircle2 className="w-14 h-14 text-sky-400 mx-auto" />
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-white">Message Delivered!</h3>
+              <p className="text-slate-400 text-sm max-w-md mx-auto">
+                Thanks for getting in touch. I'll review your project details and respond via email as soon as possible.
+              </p>
+              <button
+                onClick={() => setIsSubmitted(false)}
+                className="mt-4 px-6 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold transition-colors"
+              >
+                Send Another Message
+              </button>
+            </motion.div>
+          ) : (
+            /* Contact Form */
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {/* Name */}
+                <div className="space-y-2">
+                  <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
+                    Your Name
+                  </label>
+                  <input
+                    name="name"
+                    type="text"
+                    required
+                    placeholder="John Doe"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-sky-400 transition-colors"
+                  />
+                </div>
+
+                {/* Email */}
+                <div className="space-y-2">
+                  <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
+                    Email Address
+                  </label>
+                  <input
+                    name="email"
+                    type="email"
+                    required
+                    placeholder="john@example.com"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-sky-400 transition-colors"
+                  />
+                </div>
+              </div>
+
+              {/* Project Type */}
+              <div className="space-y-2">
+                <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
+                  Project Type
+                </label>
+                <select 
+                  name="project_type"
+                  className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/10 text-slate-300 focus:outline-none focus:border-sky-400 transition-colors"
+                >
+                  <option value="YouTube Long-Form Video">YouTube Long-Form Video</option>
+                  <option value="Shorts / Reels / TikToks">Shorts / Reels / TikToks</option>
+                  <option value="Commercial / Brand Ad">Commercial / Brand Ad</option>
+                  <option value="Color Grading / Sound Design">Color Grading / Sound Design</option>
+                  <option value="Other Inquiry">Other Inquiry</option>
+                </select>
+              </div>
+
+              {/* Message */}
+              <div className="space-y-2">
+                <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
+                  Project Details
+                </label>
+                <textarea
+                  name="message"
+                  rows={4}
+                  required
+                  placeholder="Tell me about your video length, deadline, and style ideas..."
+                  className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-sky-400 transition-colors resize-none"
+                />
+              </div>
+
+              {/* Error Alert */}
+              {errorMessage && (
+                <p className="text-xs text-rose-400 text-center font-medium">
+                  {errorMessage}
+                </p>
+              )}
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full py-4 rounded-xl bg-blue-600 hover:bg-blue-500 disabled:bg-blue-800 text-white font-bold transition-colors flex items-center justify-center gap-2 shadow-lg shadow-blue-600/25"
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    Sending Message...
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-4 h-4" />
+                    Send Message
+                  </>
+                )}
+              </button>
+            </form>
+          )}
 
           {/* Social Links Bar */}
           <div className="mt-10 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2 text-slate-400 text-sm">
               <Mail className="w-4 h-4 text-sky-400" />
-              <span>or email directly at <strong className="text-white">yourname@gmail.com</strong></span>
+              <span>or email directly at <strong className="text-white">ezraye9@gmail.com</strong></span>
             </div>
 
             <div className="flex items-center gap-3">
