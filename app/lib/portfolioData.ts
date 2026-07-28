@@ -1,4 +1,15 @@
 
+// Define the Project interface
+interface Project {
+  id: string;
+  title: string;
+  category: string;
+  thumbnail: string;
+  videoEmbedUrl: string;
+  client: string;
+  tags: string[];
+}
+
 export const PROJECTS: Project[] = [
   {
     id: '1',
