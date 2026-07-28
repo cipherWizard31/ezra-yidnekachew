@@ -1,8 +1,25 @@
-'use client';
+'use client'
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, CheckCircle2, Loader2 } from 'lucide-react';
+import { 
+  Send, 
+  CheckCircle2, 
+  Loader2, 
+  Mail, 
+  Phone,
+} from 'lucide-react';
+import { BsInstagram, BsTelegram, BsLinkedin } from 'react-icons/bs';
+
+const contactInfo = {
+  email: 'ezraye9@gmail.com',
+  phone: '+251 994834110',
+  socials: [  
+    { name: 'Instagram', href: 'https://www.instagram.com/e.s.d.r.a_j', icon: BsInstagram},
+    { name: 'LinkedIn', href: 'https://x.com', icon: BsLinkedin },
+    { name: 'Telegram', href: 'https://t.me/elyon_el', icon: BsTelegram },
+  ],
+};
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -15,7 +32,6 @@ export default function Contact() {
     setErrorMessage('');
 
     const formData = new FormData(e.currentTarget);
-    // Replace with your actual Web3Forms Access Key
     formData.append('access_key', '6d818a05-8d11-4bbd-aae6-9fc1894545bc');
 
     try {
@@ -60,10 +76,10 @@ export default function Contact() {
             Let's Collaborate
           </span>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-            Ready to Upgrade Your Videos?
+            Ready to Grow Your Brand?
           </h2>
           <p className="text-slate-400 text-sm sm:text-base max-w-lg mx-auto">
-            Have an upcoming project, channel, or commercial edit in mind? Send a message and let's bring it to life.
+            Looking for full social media management, content creation, or a custom growth strategy? Send a message and let's elevate your presence.
           </p>
         </motion.div>
 
@@ -85,7 +101,7 @@ export default function Contact() {
               <CheckCircle2 className="w-14 h-14 text-sky-400 mx-auto" />
               <h3 className="text-2xl sm:text-3xl font-extrabold text-white">Message Delivered!</h3>
               <p className="text-slate-400 text-sm max-w-md mx-auto">
-                Thanks for getting in touch. I'll review your project details and respond via email as soon as possible.
+                Thanks for reaching out. I'll review your project details and get back to you via email shortly.
               </p>
               <button
                 onClick={() => setIsSubmitted(false)}
@@ -127,19 +143,19 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* Project Type */}
+              {/* Service Required */}
               <div className="space-y-2">
                 <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
-                  Project Type
+                  Service Needed
                 </label>
                 <select 
                   name="project_type"
                   className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/10 text-slate-300 focus:outline-none focus:border-sky-400 transition-colors"
                 >
-                  <option value="YouTube Long-Form Video">YouTube Long-Form Video</option>
-                  <option value="Shorts / Reels / TikToks">Shorts / Reels / TikToks</option>
-                  <option value="Commercial / Brand Ad">Commercial / Brand Ad</option>
-                  <option value="Color Grading / Sound Design">Color Grading / Sound Design</option>
+                  <option value="Full Social Media Management">Full Social Media Management</option>
+                  <option value="Content Creation & Design">Content Creation & Design</option>
+                  <option value="Short-Form Video & Reels">Short-Form Video & Reels</option>
+                  <option value="Social Strategy & Consultation">Social Strategy & Consultation</option>
                   <option value="Other Inquiry">Other Inquiry</option>
                 </select>
               </div>
@@ -153,7 +169,7 @@ export default function Contact() {
                   name="message"
                   rows={4}
                   required
-                  placeholder="Tell me about your video length, deadline, and style ideas..."
+                  placeholder="Tell me about your brand, current social media platforms, goals, or upcoming campaigns..."
                   className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-sky-400 transition-colors resize-none"
                 />
               </div>
@@ -185,6 +201,61 @@ export default function Contact() {
               </button>
             </form>
           )}
+        </motion.div>
+
+        {/* Contact Info & Social Links Below Form */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="pt-6 grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left border-t border-white/10"
+        >
+          {/* Email Block */}
+          <a 
+            href={`mailto:${contactInfo.email}`}
+            className="flex flex-col items-center md:items-start p-4 rounded-xl bg-slate-900/40 border border-white/5 hover:border-blue-500/30 transition-colors group"
+          >
+            <div className="w-10 h-10 rounded-lg bg-blue-600/10 border border-blue-500/20 flex items-center justify-center text-sky-400 group-hover:bg-blue-600 group-hover:text-white transition-colors mb-3">
+              <Mail className="w-5 h-5" />
+            </div>
+            <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold">Direct Email</span>
+            <span className="text-sm font-medium text-white mt-1">{contactInfo.email}</span>
+          </a>
+
+          {/* Phone Block */}
+          <a 
+            href={`tel:${contactInfo.phone.replace(/[^0-9+]/g, '')}`}
+            className="flex flex-col items-center md:items-start p-4 rounded-xl bg-slate-900/40 border border-white/5 hover:border-blue-500/30 transition-colors group"
+          >
+            <div className="w-10 h-10 rounded-lg bg-blue-600/10 border border-blue-500/20 flex items-center justify-center text-sky-400 group-hover:bg-blue-600 group-hover:text-white transition-colors mb-3">
+              <Phone className="w-5 h-5" />
+            </div>
+            <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold">Phone / WhatsApp</span>
+            <span className="text-sm font-medium text-white mt-1">{contactInfo.phone}</span>
+          </a>
+
+          {/* Socials Block */}
+          <div className="flex flex-col items-center md:items-start p-4 rounded-xl bg-slate-900/40 border border-white/5">
+            <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-3">Connect With Me</span>
+            <div className="flex items-center gap-3">
+              {contactInfo.socials.map((social, idx) => {
+                const Icon = social.icon;
+                return (
+                  <a
+                    key={idx}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.name}
+                    className="w-12 h-12 rounded-lg bg-slate-800/80 border border-white/10 flex items-center justify-center text-slate-300 hover:text-white hover:bg-blue-600 hover:border-blue-500 transition-colors"
+                  >
+                    <Icon className="w-7 h-7" />
+                  </a>
+                );
+              })}
+            </div>
+          </div>
         </motion.div>
 
       </div>

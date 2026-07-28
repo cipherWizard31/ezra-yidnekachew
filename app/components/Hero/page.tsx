@@ -1,29 +1,32 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Play, ArrowRight, Sparkles, PhoneCallIcon } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowRight, Sparkles, PhoneCallIcon } from 'lucide-react';
 
-const titles = [
-  'Video Editor',
-  'Social Media Manager',
-];
+const titleText = "Social Media Manager";
+
+// Variants for character-by-character typing animation
+const sentenceVariants = {
+  hidden: { opacity: 1 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05,
+      delayChildren: 0.3,
+    },
+  },
+};
+
+const letterVariants = {
+  hidden: { opacity: 0, display: 'none' },
+  visible: { opacity: 1, display: 'inline' },
+};
 
 export default function Hero() {
-  const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTitleIndex((prevIndex) => (prevIndex + 1) % titles.length);
-    }, 3000); // Changes title every 3 seconds
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section 
       id="home" 
-      className="relative min-h-screen flex items-center justify-center bg-slate-950 overflow-hidden pt-24 pb-16 px-6"
+      className="relative min-h-screen flex items-center justify-center bg-slate-950 overflow-hidden pt-24 pb-16 px-4 sm:px-6"
     >
       {/* Background Ambient Glows */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-blue-600/20 rounded-full blur-[120px] pointer-events-none" />
@@ -47,28 +50,26 @@ export default function Hero() {
           </span>
         </motion.div>
 
-        {/* Headline with Dynamic Sliding Gradient Text */}
+        {/* Headline with Typewriter Text */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.1]"
+          className="text-3xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-tight sm:leading-[1.1]"
         >
           Ezra Yidnekachew <br />
-          <div className="inline-block relative h-[1.3em] overflow-hidden align-bottom">
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={titles[currentTitleIndex]}
-                initial={{ y: 50, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: -50, opacity: 0 }}
-                transition={{ duration: 0.5, ease: 'easeInOut' }}
-                className="inline-block bg-clip-text text-transparent bg-linear-to-r from-sky-400 via-blue-500 to-purple-500"
-              >
-                {titles[currentTitleIndex]}
+          <motion.span
+            variants={sentenceVariants}
+            initial="hidden"
+            animate="visible"
+            className="inline-block bg-clip-text text-transparent bg-gradient-to-r from-sky-400 via-blue-500 to-purple-500 pb-1"
+          >
+            {titleText.split('').map((char, index) => (
+              <motion.span key={index} variants={letterVariants}>
+                {char}
               </motion.span>
-            </AnimatePresence>
-          </div>
+            ))}
+          </motion.span>
         </motion.h1>
 
         {/* Subtitle */}
@@ -78,7 +79,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="max-w-2xl mx-auto text-base sm:text-lg text-slate-400 leading-relaxed"
         >
-          I'm a professional social media manager and video editor specializing in creating engaging content and compelling narratives for various platforms.
+          I'm a professional social media manager specializing in creating engaging content, growing organic reach, and crafting compelling narratives across platforms.
         </motion.p>
 
         {/* Call to Actions */}

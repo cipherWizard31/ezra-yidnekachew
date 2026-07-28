@@ -13,7 +13,7 @@ const mainFont = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Video Editor Portfolio",
+  title: "Ezra Yidnekachew | Social Media Manager",
   description: "Built with Next.js & Tailwind CSS",
 };
 

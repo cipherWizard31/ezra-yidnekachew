@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { ArrowUp, Video } from 'lucide-react';
 
 const navLinks = [
@@ -35,9 +34,9 @@ export default function Footer() {
             </div>
             <div>
               <span className="text-lg font-bold text-white tracking-tight">
-                Ezra Yidnekachew<span className="text-sky-400">.Edit</span>
+                Ezra Yidnekachew
               </span>
-              <p className="text-xs text-slate-500">Social Media Manager & Video Editor</p>
+              <p className="text-xs text-slate-500">Social Media Manager</p>
             </div>
           </div>
 

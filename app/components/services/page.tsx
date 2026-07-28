@@ -7,7 +7,6 @@ import {
   PenTool, 
   Users, 
   Target, 
-  Sparkles 
 } from 'lucide-react';
 
 const services = [
@@ -15,28 +14,28 @@ const services = [
     icon: Target,
     title: 'Social Media Strategy',
     description:
-      'Data-driven content strategies aligned with your business goals to increase reach, build brand authority, and convert followers into customers.',
+      'Strategic, data-driven social media management designed to grow your audience, strengthen your brand, and convert engagement into measurable business results.',
     tags: ['Audience Research', 'Content Pillars', 'Competitor Analysis'],
   },
   {
     icon: PenTool,
     title: 'Content Creation & Curation',
     description:
-      'High-converting graphics, reels, carousels, and copy tailored for your audience to keep your social feeds active and visually cohesive.',
+      'High-quality graphics, reels, carousels, and compelling copy designed to capture attention, engage your audience, and maintain a consistent brand identity across every platform.',
     tags: ['Copywriting', 'Graphic Design', 'Short-Form Video'],
   },
   {
     icon: Megaphone,
     title: 'Full Account Management',
     description:
-      'End-to-end management of your social channels, ensuring consistent publishing schedules, optimized profile setups, and brand growth.',
+      'From content planning to daily management, I handle every aspect of your social media so you can focus on running your business',
     tags: ['Content Calendar', 'Scheduling', 'Cross-Platform'],
   },
   {
     icon: Users,
     title: 'Community Engagement',
     description:
-      'Active interaction with your audience through comments, DMs, and outbound outreach to foster brand loyalty and direct customer relationships.',
+      'Build stronger relationships with your audience through meaningful interactions, timely responses, and proactive engagement that fosters trust and long-term loyalty.',
     tags: ['DM Management', 'Audience Growth', 'Active Outreach'],
   },
   {
@@ -45,14 +44,7 @@ const services = [
     description:
       'Detailed tracking of key metrics, performance trends, and growth insights to continually refine and optimize your social strategy.',
     tags: ['KPI Tracking', 'Growth Reports', 'Performance Audits'],
-  },
-  {
-    icon: Sparkles,
-    title: 'Paid Ad Campaigns',
-    description:
-      'Targeted ad setup and creative optimization across Meta and TikTok to reach new audiences and maximize return on ad spend (ROAS).',
-    tags: ['Meta Ads', 'Audience Targeting', 'A/B Testing'],
-  },
+  }
 ];
 
 const containerVariants = {
